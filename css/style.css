@@ -1,0 +1,11 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.main{
+    height: 1200px;
+}
+.main_peliculas{
+    height: 800px;
+}
