@@ -1,4 +1,6 @@
 
+let parrafo_movie=document.querySelector(".parrafo_movie");
+parrafo_movie.textContent="The best films & documentaries — The best documentaries dedicated to the mountains and the extreme regions of the world.View the List Of Films And Get Valuable Insights"
 let moviesContainer = document.querySelector(".moviesContainer")
 peliculas.forEach(pelicula => {
     const article = document.createElement('article');
@@ -26,3 +28,4 @@ peliculas.forEach(pelicula => {
     article.appendChild(div);
     moviesContainer.appendChild(article);
 });
+
