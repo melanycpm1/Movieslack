@@ -24,8 +24,8 @@
             <nav>
                 <ul class="flex gap-4">
                     <li class="py-3.5 px-5 border-solid border-zinc-950 border-2"><a href="#">Home</a></li>
-                    <li class="py-3.5 px-5 border-solid border-zinc-950 border-2"><a href="../sprintJs/pages/peliculas.html">Movie</a> </li>
-                    <li class="py-3.5 px-5 border-solid border-zinc-950 border-2"><a href="#">Favs</a></li>
+                    <li class="py-3.5 px-5 border-solid border-zinc-950 border-2"><a href="./pages/peliculas.html">Movie</a> </li>
+                    <li class="py-3.5 px-5 border-solid border-zinc-950 border-2"><a href="./pages/callActionFavorite.html">Favs</a></li>
                 </ul>
             </nav>
         </div>
@@ -37,7 +37,7 @@
                     class="object-cover h-full w-full">
             </div>
             <div class="w-3/4 m-auto mt-5">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nobis ex magnam ut. Eveniet dolorem
+                <p class="parrafo_movie">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nobis ex magnam ut. Eveniet dolorem
                     quibusdam, veniam nisi reprehenderit laborum, voluptatum quaerat alias aliquid, cum similique iste
                     nobis repellat! Voluptates. Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, rem est
                     excepturi quasi tempora, quisquam nisi atque architecto ullam recusandae, adipisci quos fugit
@@ -46,10 +46,10 @@
         </div>
         <div class="flex gap-14 w-10/12 relative top-72 m-auto">
             <div>
-                <img src="./assets/Recursos Moviestack/movie-trendy-banner-vector.jpg" alt="movies">
+                <a href="./pages/peliculas.html"><img src="./assets/Recursos Moviestack/movie-trendy-banner-vector.jpg" alt="movies" class="callActionMovies"></a>
             </div>
             <div>
-                <img src="./assets/Recursos Moviestack/movie-trendy-banner-vector.jpg" alt="favs">
+                <a href="/pages/callActionFavorite.html"><img src="./assets/Recursos Moviestack/movie-trendy-banner-vector.jpg" alt="favs" class=callActionFavorite></a>
             </div>
         </div>
     </main>
@@ -58,6 +58,7 @@
             <span>MINDHUB </span>
         </div>
     </footer>
+    <script src="./data.js"></script>
     <script src="./script.js"></script>
 </body>
 
