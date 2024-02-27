@@ -1,44 +1,65 @@
-let filtroGenero = document.querySelector('#genreFilter');
-let filtroNombre = document.querySelector("#nameFilter");
+function filtrarPeliculas() {
+    let filtroGenero = document.getElementById('genreFilter').value.toLowerCase();
+    let filtroNombre = document.getElementById('nameFilter').value.trim().toLowerCase();
 
-function renderizarPeliculas(filtroGenero, filtroNombre) {
-    const peliculasFiltradas = peliculas.filter(pelicula => {
-        const coincidenciaGenero = (filtroGenero === 'all' || pelicula.genres.includes(filtroGenero));
-        const coincidenciaNombre = pelicula.title.toLowerCase().includes(filtroNombre.toLowerCase());
-        return coincidenciaGenero && coincidenciaNombre;
+    let listaPeliculas = document.getElementById('moviesList');
+    listaPeliculas.innerHTML = ''; 
+
+    let seEncontro = false;
+    let peliculasAgregadas = new Set(); 
+
+    peliculas.forEach(pelicula => {
+        let generosPelicula = pelicula.genres.map(genero => genero.toLowerCase());
+        let nombrePelicula = pelicula.title.toLowerCase();
+
+        if ((filtroGenero === "all" || generosPelicula.includes(filtroGenero)) && (nombrePelicula.includes(filtroNombre))) {
+            seEncontro = true;
+            if (!peliculasAgregadas.has(pelicula.id)) {
+                const elementoPelicula = document.createElement('div');
+                elementoPelicula.innerHTML = `
+                    <h3>${pelicula.title}</h3>
+                    <img src="${pelicula.image}" class="img" alt="${pelicula.title}">
+                    <p>${pelicula.overview}</p>
+                    <p>Géneros: ${pelicula.genres.join(', ')}</p>
+                `;
+                listaPeliculas.appendChild(elementoPelicula);
+                peliculasAgregadas.add(pelicula.id);
+            }
+        }
     });
 
-    const listaPeliculas = document.getElementById('moviesList');
-    listaPeliculas.innerHTML = '';
-
-    if (peliculasFiltradas.length === 0) {
+    if (!seEncontro) {
         const mensajeSinResultados = document.createElement('p');
         mensajeSinResultados.textContent = 'No se encontraron películas.';
         listaPeliculas.appendChild(mensajeSinResultados);
-    }else {
-        peliculasFiltradas.forEach(pelicula => {
-            const elementoPelicula = document.createElement('div');
-            elementoPelicula.innerHTML = `
-                <h3>${pelicula.title}</h3>
-                <img src="${pelicula.image}" alt="${pelicula.title}">
-                <p>${pelicula.overview}</p>
-                <p>Géneros: ${pelicula.genres.join(', ')}</p>
-            `;
-            listaPeliculas.appendChild(elementoPelicula);
-        });
     }
 }
 
-filtroGenero.addEventListener('change', function() {
-    const valorFiltroGenero = this.value;
-    const valorFiltroNombre = (filtroNombre.value);
-    renderizarPeliculas(valorFiltroGenero, valorFiltroNombre);
-});
+document.getElementById('genreFilter').addEventListener('change', filtrarPeliculas);
 
-document.getElementById('nameFilter').addEventListener('input', function() {
-    const valorFiltroNombre = this.value;
-    const valorFiltroGenero = document.getElementById('genreFilter').value;
-    renderizarPeliculas(valorFiltroGenero, valorFiltroNombre);
-});
+document.getElementById('nameFilter').addEventListener('input', filtrarPeliculas);
 
-renderizarPeliculas('all', '');
+filtrarPeliculas();
+
+//const peliculasDescripciones=[];
+
+const peliculasID= peliculas.map((peliculas, indice)=>{
+    return{
+        title:`${peliculas.title}`,
+        img:`${peliculas.image}`,
+        overview:`${peliculas.overview}`,
+        id:indice,
+    }
+})
+
+console.log(peliculasID);
+
+let imgs = document.querySelectorAll("img");
+
+imgs.forEach(img => {
+    let crearHref = document.createElement("a");
+    crearHref.setAttribute("href", `../pages/detalles.html?id=${peliculasID.id}&nombre=${peliculasID.title}`);
+    let imgClone = img.cloneNode(true);
+    crearHref.appendChild(imgClone);
+    img.parentNode.replaceChild(crearHref, img);
+});
