@@ -1,48 +1,67 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="../css/style.css">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
 
-    </head>
-    <body>
-        <header class="flex justify-between items-center h-32 fixed w-full z-50">
-            <div class="flex items-center">
-                <div>
-                    <img src="../assets/Recursos Moviestack/Moviestack_favicon.png" alt="" class="w-40">
-                </div>
-                <h1>Moviestack</h1>
-            </div>
+</head>
+<body>
+    <header class="flex justify-between items-center h-32 fixed w-full z-50">
+        <div class="flex items-center">
             <div>
-    
+                <img src="../assets/Recursos Moviestack/Moviestack_favicon.png" alt="" class="w-40">
             </div>
-            <div>
-                <nav>
-                    <ul class="flex gap-4">
-                        <li class="py-3.5 px-5 border-solid border-zinc-950 border-2"><a href="../index.html">Home</a></li>
-                        <li class="py-3.5 px-5 border-solid border-zinc-950 border-2"><a href="#">Movie</a> </li>
-                        <li class="py-3.5 px-5 border-solid border-zinc-950 border-2"><a href="./callActionFavorite.html">Favs</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-        <main class="main_peliculas">
-            <div class="px-6 py-16 text-center px-5 border-solid border-zinc-950 border-2 relative top-48">
-                <h2 class="text-4xl">Movies</h2>
-            </div>
-            <div class="grid grid-rows-7 grid-cols-3 gap-6 justify-items-center relative top-96 moviesContainer">
-            
-            </div>
-        </main>
-        <footer>
-            <div class="text-center py-7 peliculasFooter">
-                <span>MINDHUB </span>
-            </div>
-        </footer>
+            <h1>Moviestack</h1>
+        </div>
+        <div>
+
+        </div>
+        <div>
+            <nav>
+                <ul class="flex gap-4">
+                    <li class="py-3.5 px-5 border-solid border-zinc-950 border-2"><a href="../index.html">Home</a></li>
+                    <li class="py-3.5 px-5 border-solid border-zinc-950 border-2"><a href="#">Movie</a> </li>
+                    <li class="py-3.5 px-5 border-solid border-zinc-950 border-2"><a
+                            href="./callActionFavorite.html">Favs</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <form action="" class="flex justify-around relative top">
+            <select id="genreFilter" name="genreFilter" class="border-2 border-solid border-black">
+                <option value="all">genero</option>
+                <option value="adventure">Adventure</option>
+                <option value="action">Action</option>
+                <option value="thriller">Thriller</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="crime">Crime</option>
+                <option value="family">Family</option>
+                <option value="romance">Romance</option>
+                <option value="animation">Animation</option>
+                <option value="scienceFiction">Science Fiction</option>
+
+
+            </select><br>
+            <input type="text" id="nameFilter" name="search" placeholder="search.." class="px-3 border-2 border-solid border-black">
+        </form>
+        
+        <div class="px-6 py-16 text-center px-5 border-solid border-zinc-950 border-2 relative top-48">
+            <h2 class="text-4xl">Movies</h2>
+        </div>
+        <div id="moviesList" class="grid grid-rows-7 grid-cols-3 gap-6 justify-items-center relative top-96 moviesContainer">
+
+        </div>
+    </main>
+    <footer>
+        <div class="text-center py-7 peliculasFooter">
+            <span>MINDHUB </span>
+        </div>
+    </footer>
     <script src="../data.js"></script>
     <script src="../script.js"></script>
-    </body>
+</body>
 </html>

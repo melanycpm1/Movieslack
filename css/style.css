@@ -6,6 +6,9 @@
 .main{
     height: 1200px;
 }
-.main_peliculas{
+/*.main_peliculas{
     height: 800px;
+}*/
+.top{
+    top: 500px;
 }

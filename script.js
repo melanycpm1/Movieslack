@@ -1,28 +1,44 @@
-let moviesContainer = document.querySelector(".moviesContainer")
-peliculas.forEach(pelicula => {
-    const article = document.createElement('article');
-    article.className = 'px-5 border-solid border-zinc-950 border-2 rounded-3xl w-96 h-96';
+let filtroGenero = document.querySelector('#genreFilter');
+let filtroNombre = document.querySelector("#nameFilter");
 
-    const img = document.createElement('img');
-    img.src = pelicula.image;
-    img.alt = pelicula.title;
-    img.className = 'mt-5';
+function renderizarPeliculas(filtroGenero, filtroNombre) {
+    const peliculasFiltradas = peliculas.filter(pelicula => {
+        const coincidenciaGenero = (filtroGenero === 'all' || pelicula.genres.includes(filtroGenero));
+        const coincidenciaNombre = pelicula.title.toLowerCase().includes(filtroNombre.toLowerCase());
+        return coincidenciaGenero && coincidenciaNombre;
+    });
 
-    const div = document.createElement('div');
-    div.className = 'text-center';
+    const listaPeliculas = document.getElementById('moviesList');
+    listaPeliculas.innerHTML = '';
 
-    const h3 = document.createElement('h3');
-    h3.className = 'mt-3.5';
-    h3.textContent = pelicula.title;
+    if (peliculasFiltradas.length === 0) {
+        const mensajeSinResultados = document.createElement('p');
+        mensajeSinResultados.textContent = 'No se encontraron películas.';
+        listaPeliculas.appendChild(mensajeSinResultados);
+    }else {
+        peliculasFiltradas.forEach(pelicula => {
+            const elementoPelicula = document.createElement('div');
+            elementoPelicula.innerHTML = `
+                <h3>${pelicula.title}</h3>
+                <img src="${pelicula.image}" alt="${pelicula.title}">
+                <p>${pelicula.overview}</p>
+                <p>Géneros: ${pelicula.genres.join(', ')}</p>
+            `;
+            listaPeliculas.appendChild(elementoPelicula);
+        });
+    }
+}
 
-    const p = document.createElement('p');
-    p.className = 'mt-1 text-xs';
-    p.textContent = pelicula.overview;
-
-    div.appendChild(h3);
-    div.appendChild(p);
-    article.appendChild(img);
-    article.appendChild(div);
-    moviesContainer.appendChild(article);
+filtroGenero.addEventListener('change', function() {
+    const valorFiltroGenero = this.value;
+    const valorFiltroNombre = (filtroNombre.value);
+    renderizarPeliculas(valorFiltroGenero, valorFiltroNombre);
 });
 
+document.getElementById('nameFilter').addEventListener('input', function() {
+    const valorFiltroNombre = this.value;
+    const valorFiltroGenero = document.getElementById('genreFilter').value;
+    renderizarPeliculas(valorFiltroGenero, valorFiltroNombre);
+});
+
+renderizarPeliculas('all', '');
