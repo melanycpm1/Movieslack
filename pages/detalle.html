@@ -1,14 +1,58 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        
-        <script src="../detalles.js"></script>
-        <script src="../data.js"></script>
-        <script src="../script.js"></script>
-    </body>
-    </html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de la Película</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <main id="main">
+        <div class="grid grid-rows-2 grid-cols-2 items-center justify-items-center relative top-7">
+            <div>
+                <img src="../assets/Recursos Moviestack/movie-trendy-banner-vector.jpg" alt="imgPelicula" class="w-96 h-72 object-cover">
+            </div>
+            <div class="w-3/4">
+                <h2 class="text-5xl font-semibold tituloPelicula">title</h2>
+                <span class="text-lg font-light generoPeli">genres</span><br>
+                <p class="font-extralight">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam omnis quae a non et qui ipsum officiis? Dignissimos, dicta nam. Distinctio deleniti explicabo incidunt amet nulla sit. Soluta, corrupti repudiandae.</p>
+            </div>
+
+            <div>
+                <table>
+                    <tr>
+                        <td class="border-4 border-black border-solid">original languaje</td>
+                        <td class="border-4 border-black border-solid">release date</td>
+                        <td class="border-4 border-black border-solid">runtime</td>
+                        <td class="border-4 border-black border-solid">status</td>
+                    </tr>
+                    <tr>
+                        <td class="border-4 border-black border-solid">en</td>
+                        <td class="border-4 border-black border-solid">2/06/2023</td>
+                        <td class="border-4 border-black border-solid">11 mins</td>
+                        <td class="border-4 border-black border-solid">released</td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <table>
+                    <tr>
+                        <td class="border-4 border-black border-solid">vote average</td>
+                        <td class="border-4 border-black border-solid">budget</td>
+                        <td class="border-4 border-black border-solid">revenue</td>
+                    </tr>
+                    <tr>
+                        <td class="border-4 border-black border-solid">8,98%</td>
+                        <td class="border-4 border-black border-solid">usd 28.700.000</td>
+                        <td class="border-4 border-black border-solid"> usd 214.010.00</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </main>
+    <script src="../detalles.js"></script>
+    <script src="../data.js"></script>
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -17,8 +17,8 @@ function filtrarPeliculas() {
             if (!peliculasAgregadas.has(pelicula.id)) {
                 const elementoPelicula = document.createElement('div');
                 elementoPelicula.innerHTML = `
-                    <h3>${pelicula.title}</h3>
-                    <img src="${pelicula.image}" class="img" alt="${pelicula.title}">
+                    <h3 class="h3"><a href="../pages/detalle.html?id=${pelicula.id}&nombre=${pelicula.title}">${pelicula.title}</a></h3>
+                    <img src="${pelicula.image}" alt="${pelicula.title}">
                     <p>${pelicula.overview}</p>
                     <p>Géneros: ${pelicula.genres.join(', ')}</p>
                 `;
@@ -53,13 +53,5 @@ const peliculasID= peliculas.map((peliculas, indice)=>{
 })
 
 console.log(peliculasID);
-
-let imgs = document.querySelectorAll("img");
-
-imgs.forEach(img => {
-    let crearHref = document.createElement("a");
-    crearHref.setAttribute("href", `../pages/detalles.html?id=${peliculasID.id}&nombre=${peliculasID.title}`);
-    let imgClone = img.cloneNode(true);
-    crearHref.appendChild(imgClone);
-    img.parentNode.replaceChild(crearHref, img);
+document.addEventListener('DOMContentLoaded', function() {
 });
